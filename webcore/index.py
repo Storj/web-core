@@ -22,7 +22,7 @@ import file_encryptor
 app = Flask(__name__)
 app.config['TEMP_FOLDER'] = 'tmp'
 app.config['MAX_CONTENT_LENGTH'] = settings.STORAGE_SIZE
-app.config['DATACOIN_OVERRIDE'] = settings.DATACOIN_OVERRIDE
+app.config['METACHAINS_OVERRIDE'] = settings.METACHAINS_OVERRIDE
 
 if not app.debug:
     import logging
@@ -37,8 +37,8 @@ def get_webcore():
     if wc is None:
         wc = g._web_core = webcore.WebCore()
 
-    if settings.DATACOIN_OVERRIDE:
-        wc.coin = settings.DATACOIN_OVERRIDE()
+    if settings.METACHAINS_OVERRIDE:
+        wc.coin = settings.METACHAINS_OVERRIDE()
     return wc
 
 
@@ -145,7 +145,7 @@ def status():
     """Return node status information.
 
     This includes transfer limits, storage usage,
-    synchronization status and datacoin status.
+    synchronization status and metachains status.
 
     """
     cm   = get_webcore().cloud
@@ -178,7 +178,8 @@ def status():
             "blockchain_queue": cm.blockchain_queue_info()
             },
 
-        "datacoin": {
+        "metachains": {
+            "coin": 'florincoin',
             "balance": coin.balance(),
             "address": coin.address("incoming"),
             "block":   cm.last_known_block()

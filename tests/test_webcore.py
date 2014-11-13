@@ -116,7 +116,7 @@ class MetaDiskWebCoreTestCase(unittest.TestCase):
                     return 0.
 
             return MockDc()
-        settings.DATACOIN_OVERRIDE = mockdc
+        settings.METACHAINS_OVERRIDE = mockdc
 
 #       db_name = self.__class__.__name__ + str(int(time.time()))
         db_name = self.__class__.__name__

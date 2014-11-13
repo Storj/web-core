@@ -3,11 +3,11 @@ web-core
 [![Build Status](https://travis-ci.org/Storj/web-core.svg?branch=master)](https://travis-ci.org/Storj/web-core)
 [![Coverage Status](https://coveralls.io/repos/Storj/web-core/badge.png?branch=master)](https://coveralls.io/r/Storj/web-core?branch=master) 
 
-web-core, a filehost web app, that allows anyone to upload files via a API.
+web-core, a filehost web app, that allows anyone to upload files via an API.
 Files are hashed and uploaded to public file hosting. Using the hashes a node
 can look up the information of where that file was stored using the
-[Datacoin](http://datacoin.info/) blockchain. This makes a file uploaded to
-Metadisk accessible through any node in the network.
+[Florincoin](http://florincoin.info/) blockchain. This makes a file uploaded to
+MetaDisk accessible through any node in the network.
 
 - Coded in [Python](http://python.org/) and [Flask](http://flask.pocoo.org/), a Python microframework for web.
 - Must be run on a Linux based web server, [Debian](http://www.debian.org/) distro recommended.
@@ -15,7 +15,7 @@ Metadisk accessible through any node in the network.
 #### Web interface
 
 If you wish to use this in a browser, take a look at
-[Metadisk](https://github.com/Storj/Metadisk). It is a web interface,
+[MetaDisk](https://github.com/Storj/Metadisk). It is a web interface,
 composed of only html, css and javascript, powered by the web-core API.
 
 
@@ -32,7 +32,7 @@ This project depends on several other projects:
   the files present in local cache, and handles database serialization.
 
 - [metachains-dtc](https://github.com/Storj/metachains-dtc) is a wrapper for
-  the Datacoin client, using json RPC. It also contains a synchronization class,
+  the Florincoin client, using json RPC. It also contains a synchronization class,
   which allows one to synchronize data from and to the blockchain.
 
 - [file-encryptor](https://github.com/Storj/file-encryptor) is an encryption
@@ -41,13 +41,13 @@ This project depends on several other projects:
 This project puts everything together and makes it accessible through a web
 application. It uses `cloudmanager` to manage all uploads/downloads, and
 `metachains-dtc` to enable synchronization of the hosted content information
-between nodes running Metadisk. All uploaded files are encrypted using
+between nodes running MetaDisk. All uploaded files are encrypted using
 `file-encryptor`.
 
 
 #### Synchronization note
 
-Keep in mind that the `upload` command spends datacoins, so be careful when
+Keep in mind that the `upload` command spends Florincoins, so be careful when
 using it.
 
 #### Transfer cost
@@ -119,7 +119,7 @@ Retrieve information regarding a given file hash:
 
 
 Retrieve node information, including storage, transfer limits, synchronization
-status, datacoin information. All sizes are in bytes.
+status, florincoin information. All sizes are in bytes.
 
     GET /api/status
     Parameters: None

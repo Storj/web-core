@@ -7,7 +7,7 @@ except EnvironmentError:
 
 setup(
     name='web-core',
-    version='0.2',
+    version='0.3',
     author='Storj',
     author_email='storj@example.com',
     packages=['webcore', ],
